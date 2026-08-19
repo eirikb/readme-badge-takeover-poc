@@ -6,31 +6,36 @@ h1{font-size:2rem;margin:.2rem 0}h2{color:#ffb37a;margin-top:2.4rem}
 a{color:#ff9a4d}code{font-family:ui-monospace,monospace;background:#12181f;padding:.15em .45em;border-radius:4px}
 img{max-width:100%;display:block;margin:.6rem 0 1.2rem;border-radius:8px}
 .sub{color:#8fa1b3}
+.seam{background:#0d1117;border-radius:8px;padding:24px 32px}
+.seam .real{font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#e6edf3;margin:0 0 4px}
+.seam img{border-radius:0;margin:0}
 #gotcha{border:1px solid #ff7a18;background:#1c1206;border-radius:10px;padding:1rem 1.2rem;margin:1.4rem 0}
 </style>
 <h1>README badge takeover</h1>
 <p class="sub">A badge is an image request to a server, dressed up as a fact. Here is how far that goes.</p>
 
 <div id="gotcha">
-<strong style="color:#ff9a4d">☞ If you got here by clicking a "README", that is the point.</strong><br>
-You clicked what looked like a project's documentation — links, install command, security advisory and all — and it was a single image served from a third-party badge URL, wrapped in one link that sent you here. Not one byte of it lives in the repository you were looking at.
+<strong style="color:#ff9a4d">☞ If you got here by clicking something that looked like a README, that is the point.</strong><br>
+What you clicked was a single image served from a third-party URL, wrapped in one link. Not one byte of it lived in the repository you were reading.
 </div>
 
-<h2>readme.svg — the whole README, faked</h2>
-<p class="sub">GitHub's own README chrome, drawn in an SVG. On this page the links inside are live; embedded on
-GitHub via <code>&lt;img&gt;</code> the internal links go inert (secure static mode) but the entire panel is
-wrappable in one markdown link to anywhere.</p>
-<img src="readme.svg" alt="a fake GitHub README panel">
+<h2>The seamless one — an image that reads as README text</h2>
+<p class="sub">Below, the first line is <em>real</em> browser text. Everything from &ldquo;Installation&rdquo; down is a
+single SVG image served from this server. Same font, same size, same theme (it tracks light/dark on its own).
+Can you see the seam?</p>
+<div class="seam">
+  <p class="real">awesome-project is a fast, dependency-free toolkit. The quickest way to get going is below.</p>
+  <img src="readme.svg" alt="Installation">
+</div>
+<p class="sub">That is the trap: on GitHub an embedded image renders in secure static mode (no script, no
+tracking), but nothing stops it from <em>looking</em> like the prose around it and saying whatever the host wants
+it to say. Wrap it in a markdown link and the whole thing becomes clickable.</p>
+
+<h2>takeover.svg — the loud version of the same trick</h2>
+<img src="takeover.svg" alt="full-width animated takeover banner">
 
 <h2>badge.svg — whatever is live right now</h2>
 <img src="badge.svg" alt="live badge">
-
-<h2>takeover.svg — a full-width animated swap</h2>
-<img src="takeover.svg" alt="full-width animated takeover banner">
-
-<h2>security.svg — a badge that lies at rest</h2>
-<img src="security.svg" alt="fake security audited badge">
-<p class="sub">Authentic shields.io flat style, claiming an audit that never happened.</p>
 
 <h2>innocent.svg — what a reviewer sees at merge time</h2>
 <img src="innocent.svg" alt="innocent 132x20 badge">
