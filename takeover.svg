@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="420" viewBox="0 0 880 420" role="img" aria-label="Badge takeover proof of concept">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760" role="img" aria-label="Badge takeover proof of concept — full takeover">
   <title>Badge takeover proof of concept</title>
-  <desc>Demonstrates that a remotely hosted README badge can be replaced with arbitrary full-width animated content, without any change to the repository.</desc>
+  <desc>A single README badge URL, re-pointed at arbitrary full-width animated content, with no change to the repository that displays it.</desc>
 
   <defs>
-    <clipPath id="card"><rect width="880" height="420" rx="12"/></clipPath>
-    <clipPath id="mq"><rect x="0" y="344" width="880" height="36"/></clipPath>
+    <clipPath id="card"><rect width="1000" height="760" rx="16"/></clipPath>
+    <clipPath id="mq"><rect x="0" y="676" width="1000" height="44"/></clipPath>
+    <radialGradient id="bg" cx="30%" cy="0%" r="120%">
+      <stop offset="0" stop-color="#171003"/>
+      <stop offset="0.45" stop-color="#0b0f14"/>
+      <stop offset="1" stop-color="#05070a"/>
+    </radialGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd24d"/>
+      <stop offset="0.5" stop-color="#ff7a18"/>
+      <stop offset="1" stop-color="#ff3d6e"/>
+      <animate attributeName="x1" values="0;1;0" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;2;1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
     <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0"   stop-color="#ff7a18" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#ff7a18" stop-opacity="0.30"/>
-      <stop offset="1"   stop-color="#ff7a18" stop-opacity="0"/>
+      <stop offset="0"    stop-color="#ff7a18" stop-opacity="0"/>
+      <stop offset="0.5"  stop-color="#ff7a18" stop-opacity="0.28"/>
+      <stop offset="1"    stop-color="#ff7a18" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="shine" x2="0" y2="100%">
       <stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/>
@@ -19,35 +31,62 @@
   <style>
     .f{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace}
-    .pulse{animation:p 1.1s ease-in-out infinite}
-    @keyframes p{0%,100%{opacity:1}50%{opacity:.12}}
-    .glow{animation:g 3s ease-in-out infinite}
-    @keyframes g{0%,100%{opacity:.55}50%{opacity:1}}
+    .pulse{animation:p 1.05s ease-in-out infinite}
+    @keyframes p{0%,100%{opacity:1}50%{opacity:.1}}
+    .glow{animation:g 3.2s ease-in-out infinite}
+    @keyframes g{0%,100%{opacity:.5}50%{opacity:1}}
+    .rise{animation:r 2.6s ease-in-out infinite}
+    @keyframes r{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   </style>
 
   <g clip-path="url(#card)">
-    <rect width="880" height="420" fill="#0b0f14"/>
+    <rect width="1000" height="760" fill="url(#bg)"/>
 
-    <g opacity="0.55">
-      <path d="M0 250 H880 M0 300 H880 M0 200 H880" stroke="#16202b" stroke-width="1"/>
-      <path d="M220 0 V420 M440 0 V420 M660 0 V420" stroke="#16202b" stroke-width="1"/>
+    <!-- faint grid -->
+    <g opacity="0.5" stroke="#141d27" stroke-width="1">
+      <path d="M0 120H1000 M0 190H1000 M0 470H1000 M0 540H1000 M0 610H1000"/>
+      <path d="M250 0V760 M500 0V760 M750 0V760"/>
     </g>
 
-    <g>
-      <rect x="-460" y="0" width="300" height="420" fill="url(#sweep)" transform="skewX(-18)">
-        <animateTransform attributeName="transform" type="translate" from="-200 0" to="1320 0"
-                          dur="4.6s" repeatCount="indefinite" additive="sum"/>
-      </rect>
+    <!-- equalizer bars, purely decorative motion -->
+    <g transform="translate(0,470)" opacity="0.5">
+      <rect x="70"  width="26" height="60" fill="#3a2a12">
+        <animate attributeName="height" values="30;120;54;96;30" dur="2.3s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="0;-60;6;-36;0" dur="2.3s" repeatCount="indefinite"/></rect>
+      <rect x="112" width="26" height="90" fill="#4a3416">
+        <animate attributeName="height" values="80;24;140;60;80" dur="2.9s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="0;56;-60;20;0" dur="2.9s" repeatCount="indefinite"/></rect>
+      <rect x="154" width="26" height="46" fill="#5a3f19">
+        <animate attributeName="height" values="46;150;70;110;46" dur="2.1s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="0;-104;-24;-64;0" dur="2.1s" repeatCount="indefinite"/></rect>
+      <rect x="820" width="26" height="70" fill="#5a3f19">
+        <animate attributeName="height" values="70;20;130;50;70" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="0;50;-60;20;0" dur="2.5s" repeatCount="indefinite"/></rect>
+      <rect x="862" width="26" height="110" fill="#4a3416">
+        <animate attributeName="height" values="110;40;150;72;110" dur="3.1s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="0;70;-40;38;0" dur="3.1s" repeatCount="indefinite"/></rect>
+      <rect x="904" width="26" height="52" fill="#3a2a12">
+        <animate attributeName="height" values="52;128;30;96;52" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="0;-76;22;-44;0" dur="2.2s" repeatCount="indefinite"/></rect>
     </g>
 
-    <rect x="0" y="0" width="880" height="40" fill="#1a1109"/>
-    <circle cx="26" cy="20" r="6" fill="#ff4d4d" class="pulse"/>
-    <text x="46" y="25" class="m" font-size="13" fill="#ffb37a" letter-spacing="1.2">REMOTE CONTENT — SERVED BY THE BADGE HOST, NOT BY THIS REPOSITORY</text>
+    <!-- diagonal light sweep -->
+    <rect x="-560" y="0" width="380" height="760" fill="url(#sweep)" transform="skewX(-16)">
+      <animateTransform attributeName="transform" type="translate" from="-260 0" to="1560 0"
+                        dur="5.2s" repeatCount="indefinite" additive="sum"/>
+    </rect>
 
-    <text x="44" y="122" class="f" font-size="47" font-weight="800" fill="#ffffff">THIS WAS A 132×20 BADGE</text>
-    <text x="46" y="160" class="f" font-size="21" fill="#8fa1b3">…until the host decided to serve something else at the same URL.</text>
+    <!-- alert strip -->
+    <rect x="0" y="0" width="1000" height="52" fill="#1c1206"/>
+    <circle cx="30" cy="26" r="8" fill="#ff4d4d" class="pulse"/>
+    <text x="56" y="32" class="m" font-size="15" fill="#ffb37a" letter-spacing="1.6">REMOTE CONTENT — SERVED BY THE BADGE HOST, NOT BY THIS REPOSITORY</text>
 
-    <g transform="translate(46,192)">
+    <!-- headline -->
+    <text x="52" y="180" class="f" font-size="74" font-weight="800" fill="url(#hot)">THIS WAS A BADGE.</text>
+    <text x="56" y="236" class="f" font-size="27" fill="#93a6b8">132 × 20 pixels. Now it is 1000 × 760, and the README never changed.</text>
+
+    <!-- actual-size original for contrast -->
+    <g transform="translate(56,286)">
       <g>
         <clipPath id="rb"><rect width="132" height="20" rx="4"/></clipPath>
         <g clip-path="url(#rb)">
@@ -59,27 +98,37 @@
           <text x="43" y="14">directory</text><text x="108" y="14">indexed</text>
         </g>
       </g>
-      <text x="146" y="15" class="m" font-size="13" fill="#5f7183">← what you reviewed, at actual size</text>
+      <text x="150" y="15" class="m" font-size="14" fill="#5f7183">← what you reviewed, at actual size</text>
     </g>
 
-    <g class="m" font-size="15" fill="#c9d6e2">
-      <text x="46" y="256">same markdown   ·   same commit   ·   same URL   ·   zero repo changes</text>
-      <text x="46" y="284" fill="#ffb37a">cache-control: max-age=300   →   a swap reaches every reader in 5 minutes</text>
-      <text x="46" y="312" fill="#8fa1b3">no SRI   ·   no version pinning   ·   no review step   ·   no script required</text>
+    <!-- facts -->
+    <g class="m" font-size="18">
+      <text x="56" y="372" fill="#cdd9e5">same markdown  ·  same commit  ·  same URL  ·  zero repository changes</text>
+      <text x="56" y="410" fill="#ffb37a">cache-control is the host's to choose  →  max-age=0 lands on the next page view</text>
+      <text x="56" y="448" fill="#8fa1b3">no SRI  ·  no version pinning  ·  no review step  ·  no script required</text>
     </g>
 
-    <rect x="0" y="344" width="880" height="36" fill="#12181f"/>
+    <!-- capability chips -->
+    <g class="f" font-size="15" fill="#ffdca8">
+      <g class="rise"><rect x="56"  y="566" width="150" height="34" rx="17" fill="#241608" stroke="#ff7a18" stroke-opacity=".4"/><text x="131" y="588" text-anchor="middle">arbitrary text</text></g>
+      <g class="rise"><rect x="216" y="566" width="140" height="34" rx="17" fill="#241608" stroke="#ff7a18" stroke-opacity=".4"/><text x="286" y="588" text-anchor="middle">animation</text></g>
+      <g class="rise"><rect x="366" y="566" width="196" height="34" rx="17" fill="#241608" stroke="#ff7a18" stroke-opacity=".4"/><text x="464" y="588" text-anchor="middle">full-width artwork</text></g>
+      <g class="rise"><rect x="572" y="566" width="182" height="34" rx="17" fill="#241608" stroke="#ff7a18" stroke-opacity=".4"/><text x="663" y="588" text-anchor="middle">embedded images</text></g>
+      <g class="rise"><rect x="764" y="566" width="180" height="34" rx="17" fill="#241608" stroke="#ff7a18" stroke-opacity=".4"/><text x="854" y="588" text-anchor="middle">restyled any time</text></g>
+    </g>
+
+    <!-- marquee -->
+    <rect x="0" y="676" width="1000" height="44" fill="#12181f"/>
     <g clip-path="url(#mq)">
-      <g class="m" font-size="14" fill="#ff9a4d">
-        <animateTransform attributeName="transform" type="translate" from="880 0" to="-980 0"
-                          dur="13s" repeatCount="indefinite"/>
-        <text x="0" y="367">arbitrary text · animation · full-width artwork · embedded images · restyled any time · pointed anywhere · and the commit still just says "add badge" ·&#160;&#160;&#160;</text>
-        <text x="980" y="367">arbitrary text · animation · full-width artwork · embedded images · restyled any time · pointed anywhere · and the commit still just says "add badge" ·&#160;&#160;&#160;</text>
+      <g class="m" font-size="16" fill="#ff9a4d">
+        <animateTransform attributeName="transform" type="translate" from="1000 0" to="-1120 0" dur="14s" repeatCount="indefinite"/>
+        <text x="0" y="704">this could be a coupon · a fake CVE notice · a competitor's logo · a phishing link · a redirect · and the diff still just says "add badge" ·&#160;&#160;&#160;&#160;</text>
+        <text x="1120" y="704">this could be a coupon · a fake CVE notice · a competitor's logo · a phishing link · a redirect · and the diff still just says "add badge" ·&#160;&#160;&#160;&#160;</text>
       </g>
     </g>
 
-    <text x="46" y="404" class="m glow" font-size="12" fill="#4c5c6b">proof of concept · no script, no network calls, no tracking — this file is only pixels</text>
+    <text x="56" y="748" class="m glow" font-size="13" fill="#4c5c6b">proof of concept · no script, no network calls, no tracking — every pixel here is inert SVG</text>
 
-    <rect x="0.5" y="0.5" width="879" height="419" rx="12" fill="none" stroke="#ff7a18" stroke-opacity="0.45" stroke-width="1.5"/>
+    <rect x="0.75" y="0.75" width="998.5" height="758.5" rx="16" fill="none" stroke="#ff7a18" stroke-opacity="0.5" stroke-width="1.5"/>
   </g>
 </svg>

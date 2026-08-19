@@ -1,9 +1,24 @@
-<!doctype html><meta charset="utf-8"><title>badge takeover PoC</title>
-<style>body{font:16px/1.6 system-ui,sans-serif;max-width:920px;margin:3rem auto;padding:0 1rem;background:#0b0f14;color:#c9d6e2}
-a{color:#ff9a4d}code{font-family:ui-monospace,monospace;background:#12181f;padding:.15em .4em;border-radius:4px}
-img{max-width:100%;display:block;margin:.6rem 0 1.6rem}</style>
+<!doctype html><meta charset="utf-8"><title>README badge takeover — PoC</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:1040px;margin:3rem auto;padding:0 1rem;background:#0b0f14;color:#c9d6e2}
+h1{font-size:2rem;margin:.2rem 0}h2{color:#ffb37a;margin-top:2.4rem}
+a{color:#ff9a4d}code{font-family:ui-monospace,monospace;background:#12181f;padding:.15em .45em;border-radius:4px}
+img{max-width:100%;display:block;margin:.6rem 0 1.4rem;border-radius:8px}
+.sub{color:#8fa1b3}
+</style>
 <h1>README badge takeover</h1>
-<p>Three files. <code>badge.svg</code> is whatever is live right now.</p>
-<h2>badge.svg (live)</h2><img src="badge.svg" alt="live badge">
-<h2>innocent.svg</h2><img src="innocent.svg" alt="innocent badge">
-<h2>takeover.svg</h2><img src="takeover.svg" alt="takeover banner">
+<p class="sub">Why a badge served from someone else's server is a live content slot you don't control.</p>
+
+<h2>badge.svg — whatever is live right now</h2>
+<img src="badge.svg" alt="live badge">
+
+<h2>innocent.svg — what a reviewer sees at merge time</h2>
+<img src="innocent.svg" alt="innocent 132x20 badge">
+
+<h2>takeover.svg — what the same URL can serve later</h2>
+<img src="takeover.svg" alt="full-width animated takeover banner">
+
+<p class="sub">Same markdown, same commit, same URL. Only the bytes at the far end change. No script, no
+network calls, no tracking — every pixel is inert SVG. See the
+<a href="https://github.com/eirikb/readme-badge-takeover-poc">repository README</a> for the walkthrough.</p>
