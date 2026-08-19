@@ -1,22 +1,22 @@
 # awesome-project
 
-[![build](https://img.shields.io/badge/build-passing-brightgreen.svg)](#) [![coverage](https://img.shields.io/badge/coverage-97%25-brightgreen.svg)](#) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](#) [![indexed](https://eirikb.github.io/readme-badge-takeover-poc/badge.svg)](https://eirikb.github.io/readme-badge-takeover-poc/)
+[![build](https://img.shields.io/badge/build-passing-brightgreen.svg)](#) [![coverage](https://img.shields.io/badge/coverage-97%25-brightgreen.svg)](#) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](#) [![security](https://eirikb.github.io/readme-badge-takeover-poc/security.svg)](https://eirikb.github.io/readme-badge-takeover-poc/) [![indexed](https://eirikb.github.io/readme-badge-takeover-poc/badge.svg)](https://eirikb.github.io/readme-badge-takeover-poc/)
 
-> A demonstration of why a README badge from someone else's server is a live content slot you don't control.
+> A demonstration of why a README badge from someone else's server is a claim you can't verify and a content slot you don't control.
 
-## The point
+## Two ways a badge lies
 
-Someone opens an issue or a PR on your repo: "You're indexed in our directory / you passed our audit / here's a build badge — feel free to drop it in your README." The markdown they hand you looks like every other badge:
+Look at the badge row above. Four of those five badges are lying to you, and they lie in two different ways.
 
-```markdown
-[![indexed](https://their-server.example/badge.svg)](https://their-server.example/)
-```
+### Lie #1 — the claim nobody verified
 
-You merge it. It renders a tidy little 132×20 badge. Done.
+`security | audited ✓` looks like the real thing. It is drawn in authentic shields.io flat style, the same green every trustworthy project wears. It is also completely fake. **Audited by whom?** Nobody. No scan ran, no report exists. It is a green rectangle asserting a fact, and a rectangle can assert anything: `coverage 97%`, `0 vulnerabilities`, `SOC 2`, `verified`. A static badge is a claim with no evidence attached, and it is false the moment you paste it in. No swap required.
 
-Except the image isn't *in* your repository. Only the **URL** is. The bytes come from their server, every time someone loads your README, forever. The fourth badge in the line above is served from this demo's own `gh-pages` branch — so **I** decide what it shows, not this README.
+The `build passing` and `coverage 97%` badges above are the same trick: hardcoded images that stay green even if the build is broken and there are no tests. They are not wired to any CI. They are pixels.
 
-## The swap
+### Lie #2 — the bytes that change after you merge
+
+The `indexed` badge is worse, because it is not even a static lie you could inspect once and dismiss. Its image lives on **my** server. Only the URL is in this repository. The bytes come from me, every time someone loads your README, forever.
 
 ```bash
 # harmless: a 132x20 shields-style badge
@@ -26,14 +26,16 @@ cp innocent.svg badge.svg && git commit -am badge && git push
 cp takeover.svg badge.svg && git commit -am badge && git push
 ```
 
-No commit lands on the repository that displays the badge. The diff that "added a small badge" is the only change that ever happened there.
+No commit lands on the repository that displays the badge. The diff that "added a small badge" is the only change that ever happened there. (In this demo the `indexed` badge is currently pointed at the takeover — that is the giant banner you can see rendered live.)
 
 ## How fast the swap reaches readers
 
 GitHub proxies README images through `camo.githubusercontent.com`, which mirrors the origin's `Cache-Control`. That max-age is **the badge host's choice**, not GitHub's:
 
-- Host it on GitHub Pages (as this demo does) and you inherit `max-age=600` — up to ten minutes.
+- Host it on GitHub Pages (as this demo does) and you inherit `max-age=600` — up to ten minutes, and stacked with the Pages CDN it measured ~9.5 minutes end to end.
 - Host it on your own box with `Cache-Control: max-age=0` and the swap lands on the **next page view**.
+
+Readers also keep their own browser-cached copy until it expires, so a takeover rolls out gradually across your audience rather than all at once — harder to notice, harder to pin down when someone reports it.
 
 ## What the proxy stops, and what it doesn't
 
@@ -53,8 +55,8 @@ So it is **not** a script or malware vector, and it can't track your readers. It
 
 ## Takeaway
 
-Treat a third-party badge like any other remote dependency, except you get **none** of the usual protections: no version pin, no lockfile, no integrity hash, no review on change. If the badge matters, self-host the SVG or vendor it into your repo. If it doesn't, don't add it.
+A badge is an image request to a server, dressed up as a fact. Treat it like any other remote dependency, except you get **none** of the usual protections: no version pin, no lockfile, no integrity hash, no review on change, and — for the static ones — no evidence behind the claim at all. If a badge matters, self-host the SVG or vendor it into your repo, and make sure something real actually produces it. If it doesn't matter, don't add it.
 
 ---
 
-Payloads live on the [`gh-pages`](../../tree/gh-pages) branch: `innocent.svg`, `takeover.svg`, and `badge.svg` (whichever is live). Browse them at <https://eirikb.github.io/readme-badge-takeover-poc/>.
+Payloads live on the [`gh-pages`](../../tree/gh-pages) branch: `innocent.svg`, `takeover.svg`, `security.svg`, and `badge.svg` (whichever is live). Browse them at <https://eirikb.github.io/readme-badge-takeover-poc/>.
