@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="640" viewBox="0 0 1000 640" role="img" aria-label="Project README">
+  <title>awesome-project — README</title>
+  <desc>Rendered documentation for awesome-project.</desc>
+  <style>
+    .b{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+    .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace}
+    .lnk{fill:#2f81f7}
+    .u{text-decoration:underline}
+    .cta:hover{fill:#58a6ff}
+  </style>
+  <defs><clipPath id="card"><rect width="1000" height="640" rx="6"/></clipPath></defs>
+
+  <g clip-path="url(#card)">
+    <!-- canvas + border -->
+    <rect x="0.5" y="0.5" width="999" height="639" rx="6" fill="#0d1117" stroke="#30363d"/>
+
+    <!-- file header bar -->
+    <rect x="1" y="1" width="998" height="40" fill="#161b22"/>
+    <line x1="0" y1="41" x2="1000" y2="41" stroke="#30363d"/>
+    <!-- TOC hamburger icon -->
+    <g stroke="#7d8590" stroke-width="1.6" stroke-linecap="round">
+      <line x1="20" y1="16" x2="34" y2="16"/><line x1="20" y1="21" x2="34" y2="21"/><line x1="20" y1="26" x2="30" y2="26"/>
+    </g>
+    <text x="46" y="26" class="b" font-size="13" fill="#e6edf3" font-weight="600">README.md</text>
+    <!-- right-side action glyphs -->
+    <g fill="none" stroke="#7d8590" stroke-width="1.5">
+      <path d="M930 14 l-6 7 6 7"/><path d="M946 14 l6 7 -6 7"/>
+      <circle cx="972" cy="21" r="1.6" fill="#7d8590" stroke="none"/><circle cx="978" cy="21" r="1.6" fill="#7d8590" stroke="none"/><circle cx="984" cy="21" r="1.6" fill="#7d8590" stroke="none"/>
+    </g>
+
+    <!-- H1 -->
+    <text x="32" y="86" class="b" font-size="30" font-weight="700" fill="#e6edf3">awesome-project</text>
+    <line x1="32" y1="102" x2="968" y2="102" stroke="#21262d" stroke-width="1"/>
+
+    <!-- mini badge row -->
+    <g class="b" font-size="10" fill="#fff" text-anchor="middle">
+      <rect x="32"  y="116" width="90" height="18" rx="3" fill="#555"/><rect x="76" y="116" width="46" height="18" rx="3" fill="#4c1"/><text x="54" y="129">build</text><text x="99" y="129">passing</text>
+      <rect x="130" y="116" width="118" height="18" rx="3" fill="#555"/><rect x="196" y="116" width="52" height="18" rx="3" fill="#4c1"/><text x="163" y="129">security</text><text x="222" y="129">audited</text>
+      <rect x="256" y="116" width="96" height="18" rx="3" fill="#555"/><rect x="308" y="116" width="44" height="18" rx="3" fill="#007ec6"/><text x="282" y="129">license</text><text x="330" y="129">MIT</text>
+    </g>
+
+    <!-- lede -->
+    <text x="32" y="170" class="b" font-size="15" fill="#c9d6e2">A blazing-fast toolkit trusted by 40,000+ developers. Zero config, batteries included.</text>
+
+    <!-- H2 Installation -->
+    <text x="32" y="210" class="b" font-size="21" font-weight="700" fill="#e6edf3">Installation</text>
+    <line x1="32" y1="222" x2="968" y2="222" stroke="#21262d" stroke-width="1"/>
+
+    <!-- code block -->
+    <rect x="32" y="238" width="936" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+    <text x="48" y="265" class="m" font-size="14" fill="#e6edf3">$ curl -fsSL https://get.awesome.example/install.sh | sh</text>
+    <!-- copy icon -->
+    <g stroke="#7d8590" stroke-width="1.4" fill="none"><rect x="936" y="252" width="12" height="14" rx="2"/><path d="M932 262 h-4 v-14 h12 v4"/></g>
+
+    <!-- paragraph + link -->
+    <text x="32" y="316" class="b" font-size="15" fill="#c9d6e2">New in v2.1.0. See the <tspan class="lnk u">full release notes</tspan> and the <tspan class="lnk u">migration guide</tspan>.</text>
+
+    <!-- GitHub-style alert (Note) -->
+    <rect x="32" y="336" width="936" height="70" rx="6" fill="#0d1f33" stroke="#1f6feb"/>
+    <rect x="32" y="336" width="4" height="70" rx="2" fill="#1f6feb"/>
+    <text x="52" y="362" class="b" font-size="14" font-weight="700" fill="#58a6ff">⚠ Security advisory</text>
+    <text x="52" y="386" class="b" font-size="14" fill="#c9d6e2">A critical fix shipped in 2.1.0. <tspan class="lnk u cta">Download the signed patch</tspan> and verify before deploying.</text>
+
+    <!-- H2 Links -->
+    <text x="32" y="446" class="b" font-size="21" font-weight="700" fill="#e6edf3">Resources</text>
+    <line x1="32" y1="458" x2="968" y2="458" stroke="#21262d" stroke-width="1"/>
+
+    <!-- bulleted links -->
+    <g class="b" font-size="15">
+      <circle cx="40" cy="484" r="2.5" fill="#7d8590"/><text x="52" y="489" class="lnk u">Homepage &amp; live demo</text>
+      <circle cx="40" cy="512" r="2.5" fill="#7d8590"/><text x="52" y="517" class="lnk u">Documentation</text>
+      <circle cx="40" cy="540" r="2.5" fill="#7d8590"/><text x="52" y="545" class="lnk u">Report a vulnerability</text>
+      <circle cx="40" cy="568" r="2.5" fill="#7d8590"/><text x="52" y="573" class="lnk u">Sponsor this project</text>
+    </g>
+
+    <text x="32" y="614" class="b" font-size="12" fill="#484f58">© 2026 awesome-project contributors · Released under the MIT License</text>
+  </g>
+
+  <!-- Standalone-view live links: inert under GitHub's img embed, clickable on the Pages page -->
+  <a xlink:href="https://eirikb.github.io/readme-badge-takeover-poc/#gotcha"><rect x="32" y="368" width="936" height="26" fill="#000" opacity="0"/></a>
+  <a xlink:href="https://eirikb.github.io/readme-badge-takeover-poc/#gotcha"><rect x="52" y="476" width="220" height="18" fill="#000" opacity="0"/></a>
+  <a xlink:href="https://eirikb.github.io/readme-badge-takeover-poc/#gotcha"><rect x="52" y="560" width="220" height="18" fill="#000" opacity="0"/></a>
+</svg>

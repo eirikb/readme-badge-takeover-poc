@@ -1,28 +1,39 @@
 <!doctype html><meta charset="utf-8"><title>README badge takeover — PoC</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:1040px;margin:3rem auto;padding:0 1rem;background:#0b0f14;color:#c9d6e2}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:1060px;margin:2.5rem auto;padding:0 1rem;background:#0b0f14;color:#c9d6e2}
 h1{font-size:2rem;margin:.2rem 0}h2{color:#ffb37a;margin-top:2.4rem}
 a{color:#ff9a4d}code{font-family:ui-monospace,monospace;background:#12181f;padding:.15em .45em;border-radius:4px}
-img{max-width:100%;display:block;margin:.6rem 0 1.4rem;border-radius:8px}
+img{max-width:100%;display:block;margin:.6rem 0 1.2rem;border-radius:8px}
 .sub{color:#8fa1b3}
+#gotcha{border:1px solid #ff7a18;background:#1c1206;border-radius:10px;padding:1rem 1.2rem;margin:1.4rem 0}
 </style>
 <h1>README badge takeover</h1>
-<p class="sub">Why a badge served from someone else's server is a live content slot you don't control.</p>
+<p class="sub">A badge is an image request to a server, dressed up as a fact. Here is how far that goes.</p>
+
+<div id="gotcha">
+<strong style="color:#ff9a4d">☞ If you got here by clicking a "README", that is the point.</strong><br>
+You clicked what looked like a project's documentation — links, install command, security advisory and all — and it was a single image served from a third-party badge URL, wrapped in one link that sent you here. Not one byte of it lives in the repository you were looking at.
+</div>
+
+<h2>readme.svg — the whole README, faked</h2>
+<p class="sub">GitHub's own README chrome, drawn in an SVG. On this page the links inside are live; embedded on
+GitHub via <code>&lt;img&gt;</code> the internal links go inert (secure static mode) but the entire panel is
+wrappable in one markdown link to anywhere.</p>
+<img src="readme.svg" alt="a fake GitHub README panel">
 
 <h2>badge.svg — whatever is live right now</h2>
 <img src="badge.svg" alt="live badge">
 
-<h2>security.svg — a badge that lies at rest (no swap needed)</h2>
+<h2>takeover.svg — a full-width animated swap</h2>
+<img src="takeover.svg" alt="full-width animated takeover banner">
+
+<h2>security.svg — a badge that lies at rest</h2>
 <img src="security.svg" alt="fake security audited badge">
-<p class="sub">Authentic shields.io flat style. Claims an audit that never happened. Audited by whom? Nobody — it is a green rectangle.</p>
+<p class="sub">Authentic shields.io flat style, claiming an audit that never happened.</p>
 
 <h2>innocent.svg — what a reviewer sees at merge time</h2>
 <img src="innocent.svg" alt="innocent 132x20 badge">
 
-<h2>takeover.svg — what the same URL can serve later</h2>
-<img src="takeover.svg" alt="full-width animated takeover banner">
-
-<p class="sub">Same markdown, same commit, same URL. Only the bytes at the far end change. No script, no
-network calls, no tracking — every pixel is inert SVG. See the
-<a href="https://github.com/eirikb/readme-badge-takeover-poc">repository README</a> for the walkthrough.</p>
+<p class="sub">No script, no network calls, no tracking — every pixel is inert SVG. Walkthrough in the
+<a href="https://github.com/eirikb/readme-badge-takeover-poc">repository README</a>.</p>
